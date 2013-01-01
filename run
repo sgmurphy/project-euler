@@ -1,0 +1,14 @@
+#!/bin/sh
+
+if [ "$1" ]; then
+	if [ ! -f "$1.beam" ]; then
+		erlc "$1.erl"
+	fi
+	
+	erl -noshell -s $1 -s init stop
+	exit $?
+else
+	echo "Usage: $0 [solution name]"
+	echo "Example (to run solution-1.erl): $0 solution-1"
+	exit 1
+fi
