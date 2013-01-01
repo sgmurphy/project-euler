@@ -1,10 +1,7 @@
 #!/bin/sh
 
 if [ "$1" ]; then
-	if [ ! -f "$1.beam" ]; then
-		erlc "$1.erl"
-	fi
-	
+	erlc "$1.erl"
 	erl -noshell -s $1 -s init stop
 	exit $?
 else
