@@ -6,24 +6,7 @@
 % What is the largest prime factor of the number 600851475143?
 
 start() ->
-	Input = get_input("Enter a number to find its largest prime factor", 600851475143),
-	io:fwrite("Largest prime factor: ~w~n", [hd(prime_factors(Input))]).
-
-get_input(Prompt, Default) ->
-	Input = string:strip(
-		string:strip(
-			io:get_line(
-				lists:concat([Prompt, " [", Default, "]: "])
-			), 
-			right, 
-			$\n
-		)
-	),
-	if
-		Input =:= [] -> Default;
-		Input =/= [] andalso is_integer(Default) -> element(1, string:to_integer(Input));
-		Input =/= [] -> Input
-	end.
+	io:fwrite("Largest prime factor of 600851475143: ~w~n", [hd(prime_factors(600851475143))]).
 	
 prime_factors(N) ->
 	prime_factors(N, 2, []).
