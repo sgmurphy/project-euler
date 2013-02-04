@@ -4,7 +4,7 @@
 % http://projecteuler.net/problem=4
 
 start() ->
-	io:fwrite("Largest palindromic product of 2 3-digit numbers: ~w~n", [palindrome_products(lists:seq(100, 999))]).
+	io:fwrite("Largest palindromic product of 2 3-digit numbers: ~w~n", [lists:last(palindrome_products(lists:seq(100, 999)))]).
 
 palindrome_products(L) ->
 	palindrome_products(L, L, []).
